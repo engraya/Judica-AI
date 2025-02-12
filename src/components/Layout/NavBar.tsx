@@ -7,7 +7,7 @@ function NavBar() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About", href: "#" },
+    { name: "About", href: "/about" },
   ];
 
 
@@ -30,7 +30,7 @@ function NavBar() {
           {/* Logo */}
         <Link href="/">
         <div className="flex items-center space-x-3 group">
-            <span className="text-xl sm:text-2xl font-bold text-white">Judica_AI</span>
+            <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-700 via-green-400 to-indigo-400 inline-block text-transparent bg-clip-text">Judica_AI</span>
           </div>
         </Link>
           {/* Desktop Navigation */}
@@ -47,13 +47,6 @@ function NavBar() {
 
           {/* Right Side Buttons */}
           <div className="flex items-center space-x-4">
-            {/* CTA Button */}
-            <Link href="/main" className="hidden sm:flex relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-lg blur opacity-60 group-hover:opacity-100 transition duration-200" />
-              <div className="relative px-5 sm:px-7 py-2 sm:py-3 bg-blue-950 rounded-lg leading-none flex items-center">
-                <span className="text-blue-200 group-hover:text-white transition duration-200">Get Started</span>
-              </div>
-            </Link>
 
             {/* Mobile Menu Button */}
             <button
@@ -85,15 +78,6 @@ function NavBar() {
                 {link.name}
               </a>
             ))}
-            {/* Mobile CTA Button */}
-            <div className="px-3 py-2">
-              <Link href="/main" className="w-full relative group">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-lg blur opacity-60 group-hover:opacity-100 transition duration-200" />
-                <div className="relative px-4 py-2 bg-blue-950 rounded-lg leading-none flex items-center justify-center">
-                  <span className="text-blue-200 group-hover:text-white transition duration-200">Get Started</span>
-                </div>
-              </Link>
-            </div>
           </div>
         )}
       </div>

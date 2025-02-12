@@ -3,12 +3,11 @@
 import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import SearchForm from "@/components/SearchForm";
-import DocumentView from "@/components/DocumentView";
 import { type Document } from "../types/document";
 import { sanitizeString } from "@/lib/utils";
 import LoadingComponent from "@/components/LoadingComponent";
 import LoadingSpinner from "@/components/LoadingSpinner";
-
+import DescriptionModal from "@/components/DescriptionModal";
 interface SearchResult {
   metadata: Document["metadata"];
   content: string;
@@ -88,6 +87,7 @@ export default function Home() {
   const [selectedDocument, setSelectedDocument] = useState<SearchResult | null>(
     null
   );
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     checkAndBootstrapIndex(setIsBootstrapping, setIsIndexReady);
@@ -98,17 +98,6 @@ export default function Home() {
     setResults([]);
   };
 
-  if (selectedDocument) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        <DocumentView
-          document={selectedDocument}
-          quote={selectedDocument.metadata.pageContent}
-          onBack={() => setSelectedDocument(null)}
-        />
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -172,7 +161,10 @@ export default function Home() {
                 <Card
                   key={index}
                   className="bg-white hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-                  onClick={() => setSelectedDocument(result)}
+                  onClick={() => {
+                    setSelectedDocument(result);
+                    setOpenModal(true);
+                  }}
                 >
                   <CardContent className="p-6">
                     <h2 className="text-xl font-semibold mb-3 text-gray-900">
@@ -184,22 +176,6 @@ export default function Home() {
                       </p>
                     </blockquote>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <div className="flex items-center">
-                        <span className="font-medium text-gray-900 w-20">
-                          Topic:
-                        </span>
-                        <span className="truncate">
-                          {result.metadata.topic}
-                        </span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="font-medium text-gray-900 w-20">
-                          Verdict:
-                        </span>
-                        <span className="truncate">
-                          {result.metadata.outcome}
-                        </span>
-                      </div>
                       <div className="flex items-center">
                         <span className="font-medium text-gray-900 w-20">
                           Date:
@@ -216,6 +192,15 @@ export default function Home() {
           </div>
         )}
       </div>
+      {openModal && selectedDocument && (
+      <div className="transition duration-700 ease-in-out">
+        <DescriptionModal
+          document={selectedDocument}
+          quote={selectedDocument?.metadata.pageContent}
+          onClose={() => setOpenModal(false)}
+        />
+      </div>
+      )}
     </div>
   );
 }
