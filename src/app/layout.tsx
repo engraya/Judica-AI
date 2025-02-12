@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Judica AI",
-  description: "A sample app demonstrating how to use Pinecone and Langchain to build a knowledge base of landmark legal cases and run semantic search over them",
+  description: "AI-Powered Legal Case Search & Indexing using Pinecone and Langchain",
 };
 
 export default function RootLayout({

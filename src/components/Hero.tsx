@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { ImGithub } from "react-icons/im";
 function Hero() {
   return (
 <div className="bg-[#0A0A0A] overflow-x-hidden">
@@ -30,14 +31,14 @@ function Hero() {
           </div>
           {/* Main Title - Responsive text sizes */}
           <div className="animate-reveal [animation-delay:0.4s]">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
-              <span className="inline-block bg-gradient-to-r from-violet-300 via-cyan-300 to-violet-300 bg-[length:200%_auto] animate-gradient bg-clip-text text-transparent">Future of</span>
-              <span className="block mt-2 text-white">Digital Design</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+            <div className="block mt-2 text-white">AI-Driven Legal Case Search at Your Fingertips with <span className="inline-block bg-gradient-to-r from-violet-300 via-cyan-300 to-violet-300 bg-[length:200%_auto] animate-gradient bg-clip-text text-transparent">Judica_AI</span></div>
+              
             </h1>
           </div>
           {/* Description - Adjusted line length */}
           <p className="text-base sm:text-lg text-white/60 max-w-xl mx-auto lg:mx-0 animate-reveal [animation-delay:0.6s]">
-            Experience the next evolution of digital interfaces. Where minimalism meets innovation, creating seamless and intuitive experiences.
+          Find relevant legal cases instantly with Judica_AI, the intelligent semantic search engine designed for lawyers and researchers. Say goodbye to tedious manual case searches—let AI handle the heavy lifting.
           </p>
           {/* CTA Section - Better mobile layout */}
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-reveal [animation-delay:0.8s]">
@@ -53,9 +54,12 @@ function Hero() {
               </div>
             </Link>
             {/* Secondary Button - Full width on mobile */}
-            <button className="w-full sm:w-auto px-6 py-3 rounded-lg border border-white/10 bg-white/5 backdrop-blur-lg text-white/70 hover:bg-white/10 hover:text-white transition-all min-w-[160px]">
-              Documentation
-            </button>
+            <Link href="https://github.com/engraya/Judica-AI" target='_blank'>
+              <button className="sm:w-auto px-6 py-3 rounded-lg border border-white/10 bg-white/5 backdrop-blur-lg text-white/70 hover:bg-white/10 hover:text-white transition-all">
+                <ImGithub />
+              </button>
+            </Link>
+
           </div>
         </div>
         {/* Right Column - Visual Element with better mobile scaling */}
