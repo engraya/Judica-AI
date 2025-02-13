@@ -32,7 +32,7 @@ function Hero() {
           {/* Main Title - Responsive text sizes */}
           <div className="animate-reveal [animation-delay:0.4s]">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
-            <div className="block mt-2 text-white">AI-Driven Legal Case Search at Your Fingertips with <span className="inline-block bg-gradient-to-r from-violet-300 via-cyan-300 to-violet-300 bg-[length:200%_auto] animate-gradient bg-clip-text text-transparent">Judica_AI</span></div>
+            <div className="block mt-2 text-white">AI-Driven Legal Case Search at Your Fingertips with <span className="inline-block bg-gradient-to-r from-blue-700 via-green-400 to-indigo-400 bg-[length:200%_auto] animate-gradient bg-clip-text text-transparent">Judica_AI</span></div>
               
             </h1>
           </div>

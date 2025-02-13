@@ -12,7 +12,7 @@ function NavBar() {
 
 
   return (
-    <nav className="relative overflow-hidden">
+    <nav className="relative overflow-hidden z-10">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-violet-950 via-blue-900 to-cyan-950 backdrop-blur-md" />
 
